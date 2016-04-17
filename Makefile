@@ -1,4 +1,4 @@
 .PHONY: test
 
 test:
-	./fmt.sh bla.erl
+	./fmt.sh test/bla.erl

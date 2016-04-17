@@ -9,4 +9,4 @@ ERLANGEL="${ERLANGEL:-$curdir/emacs}"
 
 echo .$ERLANGEL.
 
-$EMACS --batch -Q -L "$ERLANGEL" -l "$curdir"/fmt.el $*
+$EMACS --batch --quick --directory "$ERLANGEL" --load "$curdir"/fmt.el $*
