@@ -1,4 +1,4 @@
 .PHONY: test
 
 test:
-	./fmt.sh test/bla.erl
+	./fmt.sh $(wildcard test/*.erl)
