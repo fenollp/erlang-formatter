@@ -4,4 +4,4 @@ Format Erlang code using Emacs' erlang-mode
 
 ## Dependencies
 
-* Emacs
+* emacs24
