@@ -1,9 +1,9 @@
 %% Copyright © 2016 Pierre Fenoll ‹pierrefenoll@gmail.com›
 %% See LICENSE for licensing information.
 %% -*- coding: utf-8 -*-
--module(blaaaaa).
+-module(blaa).
 
-%% blaaaaa: 
+%% blaa: 
 
 -export([b/1]).
 
