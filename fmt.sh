@@ -8,9 +8,10 @@ curdir="$(dirname "$0")"
 
 EMACS=${EMACS:-emacs}
 ERLANGEL="${ERLANGEL:-$curdir/emacs}"
+VSN=$("$EMACS" --version | head -n 1 | grep -Eo '2[0-9]')
 
 function format() {
-    $EMACS --batch --quick --directory "$ERLANGEL" --load "$curdir"/fmt.el $*
+    "$EMACS" --batch --quick --directory "$ERLANGEL" --load "$curdir"/fmt.el $*
 }
 
 while [[ "$1" != '' ]]; do
