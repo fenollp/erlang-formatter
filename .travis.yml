@@ -1,9 +1,13 @@
 language: bash
 env:
   matrix:
+    - EMACS=emacs23
     - EMACS=emacs24
 before_install: set -e
 install:
+  - if [[ "$EMACS" = 'emacs23' ]]; then
+        # Travis' stock default
+    fi
   - if [[ "$EMACS" = 'emacs24' ]]; then
         sudo add-apt-repository -y ppa:cassou/emacs &&
         sudo apt-get -qq update &&
