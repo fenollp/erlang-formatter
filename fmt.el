@@ -1,4 +1,5 @@
 (load "erlang-start")
+(require 'cl) ; required with Emacs < 23 for ignore-errors
 
 (defun fmt-file (arg)
   (message "fmt %s" arg)
