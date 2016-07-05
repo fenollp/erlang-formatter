@@ -1,9 +1,9 @@
 .PHONY: all test
 
 all:
-	wget -O emacs/erlang.el 'https://raw.githubusercontent.com/erlang/otp/maint/lib/tools/emacs/erlang.el'
-	wget -O emacs/erlang-skels.el 'https://raw.githubusercontent.com/erlang/otp/maint/lib/tools/emacs/erlang-skels.el'
-	wget -O emacs/erlang-start.el 'https://raw.githubusercontent.com/erlang/otp/maint/lib/tools/emacs/erlang-start.el'
+	curl -o emacs/erlang.el 'https://raw.githubusercontent.com/erlang/otp/maint/lib/tools/emacs/erlang.el'
+	curl -o emacs/erlang-skels.el 'https://raw.githubusercontent.com/erlang/otp/maint/lib/tools/emacs/erlang-skels.el'
+	curl -o emacs/erlang-start.el 'https://raw.githubusercontent.com/erlang/otp/maint/lib/tools/emacs/erlang-start.el'
 
 test:
 	./fmt.sh $(wildcard test/*.erl)
