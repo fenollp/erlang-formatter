@@ -15,4 +15,4 @@ test:
 	git checkout -- test/before
 	git --no-pager diff -- test/after
 	! git grep -l $$'\t' -- test/after
-	[[ 0 -eq $$(git status --porcelain test/after | wc -l) ]]
+	bash -c '[[ 0 -eq $$(git status --porcelain test/after | wc -l) ]]'

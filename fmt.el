@@ -1,5 +1,5 @@
 (load "erlang-start")
-(require 'cl) ; required with Emacs < 23 for ignore-errors
+(require 'cl)
 
 (setq-default indent-tabs-mode nil)
 
