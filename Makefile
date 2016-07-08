@@ -10,6 +10,6 @@ all:
 	curl -o emacs/erlang-start.el $(erlangstart)
 
 test:
-	./fmt.sh test/
-	bash -c '[[ 4 -eq $$(git status --porcelain test/ | wc -l) ]]'
+	./fmt.sh test/before
+	bash -c '[[ 4 -eq $$(git status --porcelain test/before | wc -l) ]]'
 	git checkout -- test
