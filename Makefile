@@ -11,7 +11,7 @@ all:
 
 test:
 	./fmt.sh test/before
-	cp -a test/before/*.?rl test/after
+	cp -a test/before/* test/after
 	git checkout -- test/before
 	git --no-pager diff -- test/after
 	! git grep -l $$'\t' -- test/after
