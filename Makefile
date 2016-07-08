@@ -12,5 +12,6 @@ all:
 test:
 	./fmt.sh test/before
 	cp -a test/before/*.?rl test/after
-	bash -c '[[ 4 -eq $$(git status --porcelain test/after | wc -l) ]]'
 	git checkout -- test/before
+	git --no-pager diff -- test/after
+	bash -c '[[ 0 -eq $$(git status --porcelain test/after | wc -l) ]]'
