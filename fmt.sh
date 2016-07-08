@@ -10,7 +10,7 @@ EMACS=${EMACS:-emacs}
 ERLANGEL="${ERLANGEL:-$curdir/emacs}"
 
 function format() {
-    $EMACS --batch --quick --directory "$ERLANGEL" --load "$curdir"/fmt.el $*
+    $EMACS --batch --quick --directory "$ERLANGEL" --load "$curdir"/fmt.el "$@"
 }
 
 while [[ "$1" != '' ]]; do
