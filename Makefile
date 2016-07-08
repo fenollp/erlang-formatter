@@ -11,5 +11,6 @@ all:
 
 test:
 	./fmt.sh test/before
-	bash -c '[[ 4 -eq $$(git status --porcelain test/before | wc -l) ]]'
-	git checkout -- test
+	cp -a test/before/*.?rl test/after
+	bash -c '[[ 4 -eq $$(git status --porcelain test/after | wc -l) ]]'
+	git checkout -- test/before
