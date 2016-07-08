@@ -11,5 +11,5 @@ all:
 
 test:
 	./fmt.sh test/
-	bash -c '[[ 3 -eq $$(git status --porcelain test/ | wc -l) ]]'
+	bash -c '[[ 4 -eq $$(git status --porcelain test/ | wc -l) ]]'
 	git checkout -- test
