@@ -8,8 +8,8 @@
 -export([b/1]).
 
 -record(s, { a :: list()
-	   , b :: other:thing()
-	   }).
+           , b :: other:thing()
+           }).
 
 
 %% API

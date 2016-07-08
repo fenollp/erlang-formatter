@@ -6,41 +6,41 @@
 %% tabs: 
 
 -export([t/1
-	,a/0,
-	 b/1
-	,s/0
-	]).
+        ,a/0,
+         b/1
+        ,s/0
+        ]).
 
 -record(s, { a :: list()
-	   , b :: other:thing()
+           , b :: other:thing()
            , c :: other:thang()
-	   }).
+           }).
 
 
 %% API
 
 t(ABS) -> erlang:abs(
-	    ABS
-	   ).
+            ABS
+           ).
 
 a () ->
     amqp:callect(
       dst
-		,meta
-		,[{<<"blip">>, <<"bloop">>}
-		 ,{<<"blop">>, 1}
-		 ,{<<"blup">>, 42}
-		 ]
+                ,meta
+                ,[{<<"blip">>, <<"bloop">>}
+                 ,{<<"blop">>, 1}
+                 ,{<<"blup">>, 42}
+                 ]
      ).
 
 b(Arg) ->
     fun () ->
-	    [Arg
-	    ,Arg
-	    ,Arg
-	    ,Arg
-	    ,Arg
-	    ]
+            [Arg
+            ,Arg
+            ,Arg
+            ,Arg
+            ,Arg
+            ]
     end.
 
 s() ->
