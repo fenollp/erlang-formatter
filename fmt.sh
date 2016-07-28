@@ -15,8 +15,8 @@ function format() {
 
 while [[ "$1" != '' ]]; do
     if [[ -d "$1" ]]; then
-        format $(find "$1" -iname '*.erl' -or -iname '*.hrl' -or -iname '*.app.src')
-    elif [[ -e "$1" ]] && [[ "$1" =~ .+\.(erl|hrl|app\.src)$ ]]; then
+        format $(find "$1" -iname '*.erl' -or -iname '*.hrl' -or -iname '*.app.src' -or -iname '*.escript')
+    elif [[ -e "$1" ]] && [[ "$1" =~ .+\.(erl|hrl|app\.src|escript)$ ]]; then
         format "$1"
     fi
     shift
