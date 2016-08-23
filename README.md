@@ -5,3 +5,15 @@ Format Erlang code using Emacs' [erlang-mode](http://erlang.org/doc/man/erlang.e
 ## Dependencies
 
 * emacs24
+
+## To do
+
+1. make it faster
+1. write a rebar3 plugin
+1. maybe: do not depend on Emacs
+
+## Bugs uncovered with this project
+
+1. [ERL-204](https://bugs.erlang.org/browse/ERL-204)
+1. [ERL-210](https://bugs.erlang.org/browse/ERL-210)
+1. [ERL-212](https://bugs.erlang.org/browse/ERL-212)
