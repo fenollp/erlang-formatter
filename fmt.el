@@ -8,6 +8,7 @@
   (find-file arg)
   (erlang-mode)
   ;; (toggle-debug-on-error)
+  (untabify (point-min) (point-max))
   (erlang-indent-current-buffer)
   (save-buffer)
   (kill-buffer)
