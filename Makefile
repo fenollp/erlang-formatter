@@ -14,5 +14,5 @@ test:
 	cp -a test/before/* test/after
 	git checkout -- test/before
 	git --no-pager diff -- test/after
-	! git grep -l $$'\t' -- test/after
+	bash -c "! git grep -l $$'\t' -- test/after"
 	bash -c '[[ 0 -eq $$(git status --porcelain test/after | wc -l) ]]'
