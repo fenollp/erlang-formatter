@@ -9,7 +9,9 @@
   (erlang-mode)
   ;; (toggle-debug-on-error)
   (untabify (point-min) (point-max))
-  (erlang-indent-current-buffer)
+  (condition-case ex
+      (erlang-indent-current-buffer)
+    ('error (message "%s" (error-message-string ex))))
   (save-buffer)
   (kill-buffer)
   )
