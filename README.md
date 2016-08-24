@@ -9,6 +9,8 @@ Format Erlang code using Emacs' [erlang-mode](http://erlang.org/doc/man/erlang.e
 ## To do
 
 1. make it faster
+1. ensure it respects per-file settings like `%% -*- erlang-indent-level: 2; indent-tabs-mode: nil -*-`
+1. option handling to disable default TABs policy (default: spaces only)
 1. write a rebar3 plugin
 1. maybe: do not depend on Emacs
 
