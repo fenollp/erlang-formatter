@@ -9,6 +9,7 @@ Format Erlang code using Emacs' [erlang-mode](http://erlang.org/doc/man/erlang.e
 ## To do
 
 1. less verbose on no errors
+1. add newline to end of file when missing
 1. make it faster
 1. ensure it respects per-file settings like `%% -*- erlang-indent-level: 2; indent-tabs-mode: nil -*-`
 1. option handling to disable default TABs policy (default: spaces only)
