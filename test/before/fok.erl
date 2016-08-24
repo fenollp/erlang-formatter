@@ -1,0 +1,2 @@
+-module(fok).
+f()->ok.
