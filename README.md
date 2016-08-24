@@ -20,3 +20,4 @@ Format Erlang code using Emacs' [erlang-mode](http://erlang.org/doc/man/erlang.e
 1. [ERL-204](https://bugs.erlang.org/browse/ERL-204)
 1. [ERL-210](https://bugs.erlang.org/browse/ERL-210)
 1. [ERL-212](https://bugs.erlang.org/browse/ERL-212)
+1. [ERL-228](https://bugs.erlang.org/browse/ERL-228)
