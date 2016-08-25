@@ -12,7 +12,7 @@
   (condition-case ex
       (erlang-indent-current-buffer)
     ('error (message "%s" (error-message-string ex))))
-  (save-buffer)
+  (save-buffer 0)
   (kill-buffer)
   )
 
