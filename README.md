@@ -10,10 +10,14 @@ Used daily in CI at [Kazoo](https://github.com/2600Hz/Kazoo) to ensure coding st
 
 ## Notes
 
-Alternatives to this dependency-heavy utility:
+Some alternatives (in no particular order) to this dependency-heavy utility:
 
 * For Vim users [this](http://erlang.org/pipermail/erlang-questions/2009-February/041719.html) can [help](http://stackoverflow.com/questions/4085411/vim-indent-like-emacs)
-* [erl_tidy](http://erlang.org/doc/man/erl_tidy.html)
+* [erl_tidy](./test/before/erl_tidy.escript)
+* [vim-erlang-runtime](https://github.com/vim-erlang/vim-erlang-runtime)
+* [erlang_stdin_formatter](https://github.com/ebengt/erlang_stdin_formatter)
+* [erlang_string_io](https://github.com/ebengt/erlang_string_io)
+* [sourcer](https://github.com/erlang/sourcer)
 
 ## To do
 
