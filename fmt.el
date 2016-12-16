@@ -2,6 +2,7 @@
 (require 'cl)
 
 (setq-default indent-tabs-mode nil)
+(setq c-basic-offset 4)
 
 (defun fmt-file (arg)
   (message "fmt %s" arg)
