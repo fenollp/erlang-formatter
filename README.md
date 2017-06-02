@@ -39,3 +39,8 @@ Some alternatives (in no particular order) to this dependency-heavy utility:
 
 Feel free to [report issues encountered with this tool](https://github.com/fenollp/erlang-formatter/issues).
 I will minify & report them.
+
+
+
+
+(add-hook 'erlang-mode-hook (lambda () (add-hook 'before-save-hook 'erlang-indent-current-buffer nil 'make-it-local)))
