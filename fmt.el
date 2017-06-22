@@ -1,6 +1,10 @@
 (load "erlang-start")
 (require 'cl)
 
+(add-hook 'erlang-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'erlang-indent-current-buffer nil 'make-it-local)))
+
 (setq-default indent-tabs-mode nil)
 (setq c-basic-offset 4)
 
@@ -10,9 +14,6 @@
   (erlang-mode)
   ;; (toggle-debug-on-error)
   (untabify (point-min) (point-max))
-  (condition-case ex
-      (erlang-indent-current-buffer)
-    ('error (message "%s" (error-message-string ex))))
   (save-buffer 0)
   (kill-buffer)
   )
