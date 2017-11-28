@@ -1,13 +1,14 @@
 language: bash
-env:
-  matrix:
-    - EMACS=emacs24
+sudo: false
 before_install: set -e
-install:
-  - if [[ "$EMACS" = 'emacs24' ]]; then
-        sudo add-apt-repository -y ppa:cassou/emacs &&
-        sudo apt-get -qq update &&
-        sudo apt-get -qq -f install &&
-        sudo apt-get -qq install emacs24 emacs24-el;
-    fi
-script: make test
+addons:
+  apt:
+    sources:
+      - sourceline: ppa:cassou/emacs
+    packages:
+      - emacs
+script:
+  - make test
+  - make
+  - git --no-pager diff
+  - bash -c '[[ 0 -eq $(git --no-pager diff --name-only | wc -l) ]]'
