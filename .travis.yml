@@ -7,7 +7,6 @@ addons:
       - sourceline: ppa:cassou/emacs
     packages:
       - emacs
-      - emacs-el
 script:
   - make test
   - make
