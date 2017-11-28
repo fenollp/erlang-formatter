@@ -8,6 +8,7 @@ addons:
     packages:
       - emacs
 script:
+  - emacs --version
   - make test
   - make
   - git --no-pager diff
