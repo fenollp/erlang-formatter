@@ -1,12 +1,12 @@
-# [erlang-formatter](https://github.com/fenollp/erlang-formatter) [![Build Status](https://travis-ci.org/fenollp/erlang-formatter.svg?branch=master)](https://travis-ci.org/fenollp/erlang-formatter)
+# [erlang-formatter](https://github.com/fenollp/erlang-formatter) [![Build Status](https://travis-ci.org/fenollp/erlang-formatter.svg?branch=master)](https://travis-ci.org/fenollp/erlang-formatter/builds)
 
 Format Erlang code "to the standard": using Emacs' [erlang-mode](http://erlang.org/doc/man/erlang.el.html).
 
-Used daily in CI at [Kazoo](https://github.com/2600Hz/Kazoo) to ensure coding style.
+Used daily in CI on [2600Hz's Kazoo](https://github.com/2600Hz/Kazoo) project à la `go fmt`.
 
 ## Dependencies
 
-* emacs24
+* emacs ≥ 24
 
 ## Notes
 
@@ -18,6 +18,7 @@ Some alternatives (in no particular order) to this dependency-heavy utility:
 * [erlang_stdin_formatter](https://github.com/ebengt/erlang_stdin_formatter)
 * [erlang_string_io](https://github.com/ebengt/erlang_string_io)
 * [sourcer](https://github.com/erlang/sourcer)
+* [erl_tidy](https://github.com/tsloughter/erl_tidy)
 
 ## To do
 
@@ -27,8 +28,10 @@ Some alternatives (in no particular order) to this dependency-heavy utility:
 1. ensure it respects file-local settings like `%% -*- erlang-indent-level: 2; indent-tabs-mode: nil -*-`
 1. option handling to disable default TABs policy (default: spaces only)
     * Reminiscent of `Just like the CAP theorem, I posit the TIA theorem: tabs, indentation, alignment, choose two.` -- Loïc Hoguin
-1. write a rebar3 plugin
+1. [write a rebar3 plugin](https://github.com/fenollp/erlang-formatter/issues/18)
 1. maybe: do not depend on Emacs
+
+More at https://github.com/fenollp/erlang-formatter/issues
 
 ## Bugs uncovered with this project
 
@@ -36,6 +39,7 @@ Some alternatives (in no particular order) to this dependency-heavy utility:
 1. [ERL-210](https://bugs.erlang.org/browse/ERL-210)
 1. [ERL-212](https://bugs.erlang.org/browse/ERL-212)
 1. [ERL-228](https://bugs.erlang.org/browse/ERL-228)
+1. [ERL-526](https://bugs.erlang.org/browse/ERL-526)
 
 Feel free to [report issues encountered with this tool](https://github.com/fenollp/erlang-formatter/issues).
 I will minify & report them.
