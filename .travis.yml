@@ -13,3 +13,6 @@ script:
   - make
   - git --no-pager diff
   - bash -c '[[ 0 -eq $(git --no-pager diff --name-only | wc -l) ]]'
+notifications:
+  email:
+    on_success: never
