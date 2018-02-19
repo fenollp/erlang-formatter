@@ -35,11 +35,11 @@ More at https://github.com/fenollp/erlang-formatter/issues
 
 ## Bugs uncovered with this project
 
-1. [ERL-204](https://bugs.erlang.org/browse/ERL-204)
-1. [ERL-210](https://bugs.erlang.org/browse/ERL-210)
-1. [ERL-212](https://bugs.erlang.org/browse/ERL-212)
-1. [ERL-228](https://bugs.erlang.org/browse/ERL-228)
-1. [ERL-526](https://bugs.erlang.org/browse/ERL-526)
+1. [ERL-204: `$ embedded at the end of a string causes wrong indentation`](https://bugs.erlang.org/browse/ERL-204)
+1. [ERL-210: `{} inside multiline strings are indented`](https://bugs.erlang.org/browse/ERL-210)
+1. [ERL-212: `Linebreak after fun but before ( breaks indentation`](https://bugs.erlang.org/browse/ERL-212)
+1. [ERL-228: `Defining type as a tuple containing a fun() followed by expression throws Emacs error`](https://bugs.erlang.org/browse/ERL-228)
+1. [ERL-526: `Binary in a multiline list comprehension nests wrongly`](https://bugs.erlang.org/browse/ERL-526)
 
 Feel free to [report issues encountered with this tool](https://github.com/fenollp/erlang-formatter/issues).
 I will minify & report them.
