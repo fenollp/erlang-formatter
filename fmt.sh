@@ -16,7 +16,8 @@ format() {
 while [[ "$1" != '' ]]; do
     if [[ -d "$1" ]]; then
         # Note: test against compiled rebar3, jiffy.
-        # shellcheck disable=SC2046 TODO: actually fix this to support spaces in paths
+        # TODO: actually fix this to support spaces in paths
+        # shellcheck disable=SC2046
         format $(find "$1" \( -iname '*.app.src' \
                       -o      -iname '*.config' \
                       -o      -iname '*.config.script' \
