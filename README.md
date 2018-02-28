@@ -4,6 +4,23 @@ Format Erlang code "to the standard": using Emacs' [erlang-mode](http://erlang.o
 
 Used daily in CI on [2600Hz's Kazoo](https://github.com/2600Hz/Kazoo) project à la `go fmt`.
 
+```make
+.PHONY: fmt
+FMT = _build/erlang-formatter-master/fmt.sh
+$(FMT):
+	curl -f#SL 'https://codeload.github.com/fenollp/erlang-formatter/tar.gz/master' | tar xvz -C _build/
+
+# Pick either this one to go through the whole project
+fmt: TO_FMT ?= $(shell find . \( -iname '*.app.src' -o -iname '*.config' -o -iname '*.config.script' -o -iname '*.erl' -o -iname '*.escript' -o -iname '*.hrl' -o -type d -name .erlang.mk -prune -o -type d -name .eunit -prune -o -type d -name .rebar -prune -o -type d -name .rebar3 -prune -o -type d -name _build -prune -o -type d -name _rel -prune -o -type d -name deps -prune -o -type d -name ebin -prune \) -a -type f)
+# Or this faster, incremental pass
+#fmt: TO_FMT ?= $(shell git --no-pager diff --name-only HEAD origin/master -- '*.app.src' '*.config' '*.config.script' '*.erl' '*.escript' '*.hrl')
+
+fmt: $(FMT)
+	$(if $(TO_FMT), $(FMT) $(TO_FMT))
+# Example:
+#   TO_FMT='src/a.erl include/b/hrl' make fmt
+```
+
 ## Dependencies
 
 * emacs ≥ 24
@@ -17,7 +34,7 @@ Some alternatives (in no particular order) to this dependency-heavy utility:
 * [vim-erlang-runtime](https://github.com/vim-erlang/vim-erlang-runtime)
 * [erlang_stdin_formatter](https://github.com/ebengt/erlang_stdin_formatter)
 * [erlang_string_io](https://github.com/ebengt/erlang_string_io)
-* [sourcer](https://github.com/erlang/sourcer)
+* [sourcer](https://github.com/erlang/sourcer/pull/10)
 * [erl_tidy](https://github.com/tsloughter/erl_tidy)
 
 ## To do
@@ -28,7 +45,7 @@ Some alternatives (in no particular order) to this dependency-heavy utility:
 1. ensure it respects file-local settings like `%% -*- erlang-indent-level: 2; indent-tabs-mode: nil -*-`
 1. option handling to disable default TABs policy (default: spaces only)
     * Reminiscent of `Just like the CAP theorem, I posit the TIA theorem: tabs, indentation, alignment, choose two.` -- Loïc Hoguin
-1. [write a rebar3 plugin](https://github.com/fenollp/erlang-formatter/issues/18)
+1. write a rebar3 plugin: [`#18`](https://github.com/fenollp/erlang-formatter/issues/18)
 1. maybe: do not depend on Emacs
 
 More at https://github.com/fenollp/erlang-formatter/issues
