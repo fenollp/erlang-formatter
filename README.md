@@ -8,10 +8,11 @@ Used daily in CI on [2600Hz's Kazoo](https://github.com/2600Hz/Kazoo) project à
 .PHONY: fmt
 FMT = _build/erlang-formatter-master/fmt.sh
 $(FMT):
+	mkdir -p _build/
 	curl -f#SL 'https://codeload.github.com/fenollp/erlang-formatter/tar.gz/master' | tar xvz -C _build/
 
 # Pick either this one to go through the whole project
-fmt: TO_FMT ?= $(shell find . \( -iname '*.app.src' -o -iname '*.config' -o -iname '*.config.script' -o -iname '*.erl' -o -iname '*.escript' -o -iname '*.hrl' -o -type d -name .erlang.mk -prune -o -type d -name .eunit -prune -o -type d -name .rebar -prune -o -type d -name .rebar3 -prune -o -type d -name _build -prune -o -type d -name _rel -prune -o -type d -name deps -prune -o -type d -name ebin -prune \) -a -type f)
+fmt: TO_FMT ?= .
 # Or this faster, incremental pass
 #fmt: TO_FMT ?= $(shell git --no-pager diff --name-only HEAD origin/master -- '*.app.src' '*.config' '*.config.script' '*.erl' '*.escript' '*.hrl')
 
