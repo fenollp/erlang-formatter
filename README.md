@@ -17,7 +17,7 @@ Some alternatives (in no particular order) to this dependency-heavy utility:
 * [vim-erlang-runtime](https://github.com/vim-erlang/vim-erlang-runtime)
 * [erlang_stdin_formatter](https://github.com/ebengt/erlang_stdin_formatter)
 * [erlang_string_io](https://github.com/ebengt/erlang_string_io)
-* [sourcer](https://github.com/erlang/sourcer)
+* [sourcer](https://github.com/erlang/sourcer/pull/10)
 * [erl_tidy](https://github.com/tsloughter/erl_tidy)
 
 ## To do
@@ -28,7 +28,7 @@ Some alternatives (in no particular order) to this dependency-heavy utility:
 1. ensure it respects file-local settings like `%% -*- erlang-indent-level: 2; indent-tabs-mode: nil -*-`
 1. option handling to disable default TABs policy (default: spaces only)
     * Reminiscent of `Just like the CAP theorem, I posit the TIA theorem: tabs, indentation, alignment, choose two.` -- Loïc Hoguin
-1. [write a rebar3 plugin](https://github.com/fenollp/erlang-formatter/issues/18)
+1. write a rebar3 plugin: [`#18`](https://github.com/fenollp/erlang-formatter/issues/18)
 1. maybe: do not depend on Emacs
 
 More at https://github.com/fenollp/erlang-formatter/issues
