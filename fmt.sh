@@ -9,12 +9,14 @@ curdir="$(dirname "$0")"
 EMACS=${EMACS:-emacs}
 ERLANGEL="${ERLANGEL:-$curdir/emacs}"
 
-function format() {
+format() {
     $EMACS --batch --quick --directory "$ERLANGEL" --load "$curdir"/fmt.el "$@"
 }
 
 while [[ "$1" != '' ]]; do
     if [[ -d "$1" ]]; then
+        # Note: test against compiled rebar3, jiffy.
+        # shellcheck disable=SC2046 TODO: actually fix this to support spaces in paths
         format $(find "$1" \( -iname '*.app.src' \
                       -o      -iname '*.config' \
                       -o      -iname '*.config.script' \
