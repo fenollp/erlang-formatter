@@ -17,6 +17,8 @@ fmt: TO_FMT ?= $(shell find . \( -iname '*.app.src' -o -iname '*.config' -o -ina
 
 fmt: $(FMT)
 	$(if $(TO_FMT), $(FMT) $(TO_FMT))
+# Example:
+#   TO_FMT='src/a.erl include/b/hrl' make fmt
 ```
 
 ## Dependencies
