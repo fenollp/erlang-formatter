@@ -1,18 +1,20 @@
 language: bash
 sudo: false
-before_install: set -e
+before_script: set -e
+after_script: set +e
 addons:
   apt:
     sources:
       - sourceline: ppa:cassou/emacs
     packages:
       - emacs
+after_install: emacs --version
 script:
-  - emacs --version
   - make test
+  - shellcheck *.sh
   - make
   - git --no-pager diff
-  - bash -c '[[ 0 -eq $(git --no-pager diff --name-only | wc -l) ]]'
+  - '[[ 0 -eq $(git --no-pager diff --name-only | wc -l) ]]'
 notifications:
   email:
     on_success: never
