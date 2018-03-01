@@ -47,11 +47,11 @@ t(ABS) -> erlang:abs(
 a () ->
     amqp:callect(
       dst
-                ,meta
-                ,[{<<"blip">>, <<"bloop">>}
-                 ,{<<"blop">>, 1}
-                 ,{<<"blup">>, 42}
-                 ]
+     ,meta
+     ,[{<<"blip">>, <<"bloop">>}
+      ,{<<"blop">>, 1}
+      ,{<<"blup">>, 42}
+      ]
      ).
 
 b(Arg) ->

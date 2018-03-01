@@ -5,14 +5,14 @@
 
 -define(TEMPLATE_TEXT, <<"
 {% if A %}
-  A
-  {% endif %}
+ A
+ {% endif %}
 
-    {% if B %}
-      B
-      {% endif %}
-        C
-        ">>).
+  {% if B %}
+   B
+   {% endif %}
+    C
+    ">>).
 
 a() ->
-              ?TEMPLATE_TEXT.
+           ?TEMPLATE_TEXT.
