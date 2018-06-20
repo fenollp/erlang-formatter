@@ -7,10 +7,10 @@
 curdir="$(dirname "$0")"
 
 EMACS=${EMACS:-emacs}
-ERLANGEL="${ERLANGEL:-$curdir/emacs}"
+PRIV="${ERLANGEL:-$curdir/priv}"
 
 format() {
-    $EMACS --batch --quick --directory "$ERLANGEL" --load "$curdir"/fmt.el "$@"
+    $EMACS --batch --quick --directory "$PRIV" --load "$PRIV"/fmt.el "$@"
 }
 
 while [[ "$1" != '' ]]; do
@@ -18,7 +18,9 @@ while [[ "$1" != '' ]]; do
         # Note: test against compiled rebar3, jiffy.
         # TODO: actually fix this to support spaces in paths
         # shellcheck disable=SC2046
-        format $(find "$1" \( -iname '*.app.src' \
+        format $(find "$1" \( -iname '*.app' \
+                      -o      -iname '*.app.src' \
+                      -o      -iname '*.app.src.script' \
                       -o      -iname '*.config' \
                       -o      -iname '*.config.script' \
                       -o      -iname '*.erl' \
@@ -34,7 +36,7 @@ while [[ "$1" != '' ]]; do
                       -o -type d -name ebin       -prune \
                       \) \
                       -a -type f)
-    elif [[ -e "$1" ]] && [[ "$1" =~ .+\.(app\.src|config|config\.script|erl|escript|hrl)$ ]]; then
+    elif [[ -e "$1" ]] && [[ "$1" =~ .+\.(app|app\.src|app\.src\.script|config|config\.script|erl|escript|hrl)$ ]]; then
         format "$1"
     fi
     shift

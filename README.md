@@ -2,7 +2,24 @@
 
 Format Erlang code "to the standard": using Emacs' [erlang-mode](http://erlang.org/doc/man/erlang.el.html).
 
-Used daily in CI on [2600Hz's Kazoo](https://github.com/2600Hz/Kazoo) project à la `go fmt`.
+Used daily in CI on [2600Hz's Kazoo](https://github.com/2600Hz/Kazoo) project à la `gofmt`.
+
+## Using as a `rebar3` plugin
+
+Add the plugin to your rebar config:
+
+```erlang
+{plugins, [{rebar3_fmt, {git, "https://github.com/fenollp/erlang-formatter.git", {branch, "master"}}}
+]}.
+```
+
+Then just call your plugin directly in an existing application:
+
+```shell
+$ rebar3 fmt
+```
+
+## Using `make`
 
 ```make
 .PHONY: fmt
@@ -46,7 +63,6 @@ Some alternatives (in no particular order) to this dependency-heavy utility:
 1. ensure it respects file-local settings like `%% -*- erlang-indent-level: 2; indent-tabs-mode: nil -*-`
 1. option handling to disable default TABs policy (default: spaces only)
     * Reminiscent of `Just like the CAP theorem, I posit the TIA theorem: tabs, indentation, alignment, choose two.` -- Loïc Hoguin
-1. write a rebar3 plugin: [`#18`](https://github.com/fenollp/erlang-formatter/issues/18)
 1. maybe: do not depend on Emacs
 
 More at https://github.com/fenollp/erlang-formatter/issues
