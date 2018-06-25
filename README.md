@@ -9,8 +9,7 @@ Used daily in CI on [2600Hz's Kazoo](https://github.com/2600Hz/Kazoo) project à
 Add the plugin to your rebar config:
 
 ```erlang
-{plugins, [{rebar3_fmt, {git, "https://github.com/fenollp/erlang-formatter.git", {branch, "master"}}}
-]}.
+{plugins, [rebar3_fmt]}.
 ```
 
 Then just call your plugin directly in an existing application:
