@@ -6,8 +6,8 @@ erlang = $(root)/lib/tools/emacs/erlang.el
 erlangstart = $(root)/lib/tools/emacs/erlang-start.el
 
 all:
-	curl -o emacs/erlang.el $(erlang)
-	curl -o emacs/erlang-start.el $(erlangstart)
+	curl -o priv/erlang.el $(erlang)
+	curl -o priv/erlang-start.el $(erlangstart)
 
 test:
 	./fmt.sh test/before

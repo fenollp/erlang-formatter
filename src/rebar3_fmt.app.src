@@ -1,0 +1,10 @@
+{application, rebar3_fmt, [
+  {description, "rebar3 plugin to format Erlang code à la `gofmt`"},
+  {vsn, "1.1.0"},
+  {registered, []},
+  {applications, [kernel, stdlib]},
+  {env, []},
+  {maintainers, ["Pierre Fenoll"]},
+  {licenses, ["Apache 2.0"]},
+  {links, [{"Github", "https://github.com/fenollp/erlang-formatter"}]}
+]}.
