@@ -1,5 +1,5 @@
 {application, rebar3_fmt, [
-  {description, "rebar3 plugin to format Erlang code à la `gofmt`"},
+  {description, "rebar3 plugin to format Erlang code a la `gofmt`"},
   {vsn, "1.1.0"},
   {registered, []},
   {applications, [kernel, stdlib]},
