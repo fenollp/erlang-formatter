@@ -1,4 +1,4 @@
--module(rebar3_fmt).
+-module(rebar3_fmt_prv).
 -behaviour(provider).
 
 -export([init/1, do/1, format_error/1]).
