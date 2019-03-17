@@ -53,6 +53,7 @@ do_fmt(_, []) -> ok;
 do_fmt(Exe, [App|Apps]) ->
     Path = rebar_app_info:dir(App),
     Paths = find_source_files(Path),
+    rebar_api:debug("found ~p files: ~p", [length(Paths), Paths]),
     case fmt(Exe, Paths) of
         ok -> do_fmt(Exe, Apps);
         {error,_}=E -> E
@@ -71,6 +72,7 @@ find_source_files(Path) ->
         "|" "xrl"
         "|" "yrl"
         ")$",
+    rebar_api:debug("looking for files matching: '~s'", [Pattern]),
     filelib:fold_files(Path, Pattern, true, fun maybe_cons/2, []).
 
 maybe_cons(Path, Acc) ->
@@ -98,6 +100,7 @@ fmt(Exe, Paths) ->
            ,"--load", filename:join(Priv,"fmt.el")
             | Paths
            ],
+    rebar_api:debug("running ~s ~p", [Exe, Args]),
     collect(
       [], 250 * length(Paths)
      ,open_port({spawn_executable, Exe}
