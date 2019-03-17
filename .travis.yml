@@ -1,20 +1,14 @@
-language: bash
 sudo: false
+notifications: {email: {on_success: never}}
+language: erlang
+otp_release: 21.3
 before_script: set -e
 after_script: set +e
+after_install: emacs --version
+script: make test all
 addons:
   apt:
     sources:
-      - sourceline: ppa:cassou/emacs
+    - sourceline: ppa:cassou/emacs
     packages:
-      - emacs
-after_install: emacs --version
-script:
-  - make test
-  - shellcheck *.sh
-  - make
-  - git --no-pager diff
-  - '[[ 0 -eq $(git --no-pager diff --name-only | wc -l) ]]'
-notifications:
-  email:
-    on_success: never
+    - emacs

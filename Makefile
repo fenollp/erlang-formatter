@@ -8,6 +8,8 @@ erlangstart = $(root)/lib/tools/emacs/erlang-start.el
 all:
 	curl -o priv/erlang.el $(erlang)
 	curl -o priv/erlang-start.el $(erlangstart)
+	git --no-pager diff
+	bash -c '[[ 0 -eq $$(git --no-pager diff --name-only | wc -l) ]]'
 
 test:
 	./fmt.sh test/before
@@ -16,3 +18,5 @@ test:
 	git --no-pager diff -- test/after
 	bash -c "! git grep -l $$'\t' -- test/after"
 	bash -c '[[ 0 -eq $$(git status --porcelain test/after | wc -l) ]]'
+	rebar3 compile
+	shellcheck *.sh
