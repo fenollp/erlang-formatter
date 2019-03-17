@@ -1,6 +1,7 @@
-language: erlang
 sudo: false
 notifications: {email: {on_success: never}}
+language: erlang
+otp_release: 21.3
 before_script: set -e
 after_script: set +e
 after_install: emacs --version
