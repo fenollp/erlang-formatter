@@ -68,6 +68,8 @@ find_source_files(Path) ->
         "|" "erl"
         "|" "escript"
         "|" "hrl"
+        "|" "xrl"
+        "|" "yrl"
         ")$",
     filelib:fold_files(Path, Pattern, true, fun maybe_cons/2, []).
 
