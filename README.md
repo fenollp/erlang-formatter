@@ -1,4 +1,4 @@
-# [erlang-formatter](https://github.com/fenollp/erlang-formatter) [![Build Status](https://travis-ci.org/fenollp/erlang-formatter.svg?branch=master)](https://travis-ci.org/fenollp/erlang-formatter/builds)
+# [erlang-formatter](https://github.com/fenollp/erlang-formatter) [![Build Status](https://travis-ci.org/fenollp/erlang-formatter.svg?branch=master)](https://travis-ci.org/fenollp/erlang-formatter/builds) [![Hex pm](http://img.shields.io/hexpm/v/rebar3_fmt.svg?style=flat)](https://hex.pm/packages/rebar3_fmt)
 
 Format Erlang code "to the standard": using Emacs' [erlang-mode](http://erlang.org/doc/man/erlang.el.html).
 
