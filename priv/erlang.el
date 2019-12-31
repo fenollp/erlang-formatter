@@ -883,6 +883,7 @@ resulting regexp is surrounded by \\_< and \\_>."
       "spawn_link"
       "spawn_monitor"
       "spawn_opt"
+      "spawn_request"
       "split_binary"
       "statistics"
       "term_to_binary"
@@ -913,7 +914,6 @@ resulting regexp is surrounded by \\_< and \\_>."
       "bump_reductions"
       "call_on_load_function"
       "cancel_timer"
-      "crasher"
       "crc32"
       "crc32_combine"
       "decode_packet"
@@ -995,7 +995,6 @@ resulting regexp is surrounded by \\_< and \\_>."
       "set_cookie"
       "set_cpu_topology"
       "setnode"
-      "spawn_opt"
       "start_timer"
       "subtract"
       "suspend_process"
@@ -1949,7 +1948,8 @@ The format is described in the documentation of `erlang-man-dirs'."
 
 (defcustom erlang-man-download-url "http://erlang.org/download/otp_doc_man_22.1.tar.gz"
   "The URL from which the erlang-man-download function will
-  download Erlang man pages ")
+  download Erlang man pages "
+  :type 'string)
 
 (defun erlang-man-user-local-emacs-dir ()
   "Returns the directory where man pages that are downloaded by
@@ -2268,22 +2268,6 @@ buffer more accurate."
              man-buffer
              function-name
              module-name)))
-
-(defun erlang-man-function-no-prompt ()
-    "Find manual page for the function under the cursor.
-The man entry for `function' is displayed.  This function
-provides the same functionality as erlang-man-function except for
-that it does not ask the user to confirm the function name before
-opening the man page for the function."
-  (interactive)
-  (progn
-    (erlang-man-function (erlang-default-function-or-module))
-    (sleep-for 0 800) ; A hack to make sure that the function scrolls
-                      ; to the description of the function when it is
-                      ; the first time that the man page for a module
-                      ; is opened
-    (erlang-man-function (erlang-default-function-or-module))
-    ))
 
 ;; Should the defadvice be at the top level, the package `advice' would
 ;; be required.  Now it is only required when this functionality
