@@ -24,7 +24,7 @@ tidy_files(Paths) ->
 printer(AST, Options) ->
     erl_prettypr:format(AST, [{paper, 115}
                              ,{ribbon, 100}
-                              | Options
+                             | Options
                              ]).
 
 tidy(Path) ->
