@@ -9,7 +9,7 @@
 
 ;; %CopyrightBegin%
 ;;
-;; Copyright Ericsson AB 1996-2018. All Rights Reserved.
+;; Copyright Ericsson AB 1996-2020. All Rights Reserved.
 ;;
 ;; Licensed under the Apache License, Version 2.0 (the "License");
 ;; you may not use this file except in compliance with the License.
@@ -884,6 +884,7 @@ resulting regexp is surrounded by \\_< and \\_>."
       "spawn_monitor"
       "spawn_opt"
       "spawn_request"
+      "spawn_request_abandon"
       "split_binary"
       "statistics"
       "term_to_binary"
