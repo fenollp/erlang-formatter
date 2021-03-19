@@ -11,6 +11,7 @@ all:
 	git --no-pager diff
 	bash -c '[[ 0 -eq $$(git --no-pager diff --name-only | wc -l) ]]'
 
+test: SHELLCHECK ?= shellcheck
 test:
 	./fmt.sh test/before
 	cp -a test/before/* test/after
@@ -19,4 +20,4 @@ test:
 	bash -c "! git grep -l $$'\t' -- test/after"
 	bash -c '[[ 0 -eq $$(git status --porcelain test/after | wc -l) ]]'
 	rebar3 compile
-	shellcheck *.sh
+	$(SHELLCHECK) *.sh
