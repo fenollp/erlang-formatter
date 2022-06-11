@@ -5,9 +5,9 @@
 extract_integers(Min, Max, Acc) ->
     fun
         (Int) when Int < Min ->
-                                            throw({'error', {'out_of_range', {'min', Min}, {'value', Int}}});
+            throw({'error', {'out_of_range', {'min', Min}, {'value', Int}}});
         (Int) when Int > Max ->
-                                            throw({'error', {'out_of_range', {'max', Max}, {'value', Int}}});
+            throw({'error', {'out_of_range', {'max', Max}, {'value', Int}}});
         (_Int) ->
-                                            'ok'
-                                    end.
+            'ok'
+    end.
