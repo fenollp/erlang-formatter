@@ -1,23 +1,34 @@
-.PHONY: all test
+.PHONY: all test goldies compile shellcheck update
 
 branch = master
 root = https://raw.githubusercontent.com/erlang/otp/$(branch)
 erlang = $(root)/lib/tools/emacs/erlang.el
 erlangstart = $(root)/lib/tools/emacs/erlang-start.el
 
+REBAR3 ?= rebar3
+SHELLCHECK ?= shellcheck
+
 all:
 	curl -o priv/erlang.el $(erlang)
 	curl -o priv/erlang-start.el $(erlangstart)
-	git --no-pager diff
-	bash -c '[[ 0 -eq $$(git --no-pager diff --name-only | wc -l) ]]'
+	git --no-pager diff --exit-code
 
-test: SHELLCHECK ?= shellcheck
-test:
+test: goldies compile shellcheck update
+
+goldies:
 	./fmt.sh test/before
 	cp -a test/before/* test/after
 	git checkout -- test/before
-	git --no-pager diff -- test/after
 	bash -c "! git grep -l $$'\t' -- test/after"
-	bash -c '[[ 0 -eq $$(git status --porcelain test/after | wc -l) ]]'
-	rebar3 compile
+	git --no-pager diff --exit-code -- test/after
+
+compile:
+	$(REBAR3) compile
+
+shellcheck:
 	$(SHELLCHECK) *.sh
+
+update:
+	$(REBAR3) do update, upgrade --all
+	$(REBAR3) plugins upgrade --all
+	$(REBAR3) unlock --all && $(REBAR3) lock
