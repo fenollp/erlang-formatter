@@ -9,6 +9,7 @@
   (find-file arg)
   (erlang-mode)
   ;; (toggle-debug-on-error)
+  (font-lock-fontify-buffer)
   (untabify (point-min) (point-max))
   (condition-case ex
       (erlang-indent-current-buffer)
