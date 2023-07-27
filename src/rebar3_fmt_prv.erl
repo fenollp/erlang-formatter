@@ -102,7 +102,7 @@ fmt(Exe, Paths) ->
            ],
     rebar_api:debug("running ~s ~p", [Exe, Args]),
     collect(
-      [], 250 * length(Paths)
+      [], 750 * length(Paths)
      ,open_port({spawn_executable, Exe}
                ,[exit_status
                 ,use_stdio
