@@ -4,19 +4,11 @@ on:
 
 jobs:
   publish:
-    name: Publish ${{ github.ref }} to Hex ${{ matrix.otp_version }}
-    runs-on: ${{ matrix.os }}
-
-  strategy:
-    matrix:
-      otp_version: [24.0.5]
-      os: [ubuntu-latest]
+    name: Publish ${{ github.ref }} to Hex
+    runs-on: ubuntu-latest
 
   steps:
-  - name: Check out
-    uses: actions/checkout@v3
-
-  - name: Publish to Hex.pm
-    uses: erlangpack/github-action@v3
+  - uses: actions/checkout@v3
+  - uses: erlangpack/github-action@v3
     env:
       HEX_API_KEY: ${{ secrets.HEX_API_KEY }}

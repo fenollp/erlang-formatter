@@ -6,7 +6,7 @@ erlang = $(root)/lib/tools/emacs/erlang.el
 erlangstart = $(root)/lib/tools/emacs/erlang-start.el
 
 REBAR3 ?= rebar3
-SHELLCHECK ?= shellcheck
+SHELLCHECK ?= docker run --rm -it -v $(PWD):$(PWD) -w $(PWD) koalaman/shellcheck-alpine shellcheck
 
 all:
 	curl -o priv/erlang.el $(erlang)

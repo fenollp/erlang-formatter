@@ -2,20 +2,19 @@ on: [push]
 name: ci
 jobs:
 
-  shellcheck:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ludeeus/action-shellcheck@2.0.0
-      with:
-        check_together: 'yes'
-
   ci:
     runs-on: ubuntu-latest
-    container:
-      image: docker.io/library/erlang:25@sha256:e0c6f63b49fef9c9d76e8d0c53d59b5edb0af4e72080276009fd170a1f8cad5b
+    shell: bash
     steps:
+    - run: apt-get update
+    - run: |
+        apt-get install -y --no-install-recommends emacs-nox
+        emacs --version
+    - run: |
+        apt-get install -y --no-install-recommends erlang
+        erl -eval '{ok, Version} = file:read_file(filename:join([code:root_dir(), "releases", erlang:system_info(otp_release), "OTP_VERSION"])), io:fwrite(Version), halt().' -noshell
     - uses: actions/checkout@v3
-    - run: emacs --version
+#fatal: detected dubious ownership in repository at '/__w/erlang-formatter/erlang-formatter'
+#   - run: git config --global --add safe.directory /__w/erlang-formatter/erlang-formatter
     - run: make test all
     - run: git --no-pager diff --exit-code
