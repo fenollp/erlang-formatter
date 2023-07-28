@@ -2,6 +2,10 @@ on: [push]
 name: ci
 jobs:
 
+defaults:
+  run:
+    shell: bash
+
   ci:
     runs-on: ubuntu-latest
     steps:
