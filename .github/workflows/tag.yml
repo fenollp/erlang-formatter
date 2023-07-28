@@ -1,14 +1,17 @@
 on:
   push:
-    tags: ['*']
+    tags:
+      - '*'
 
 jobs:
   publish:
-    name: Publish ${{ github.ref }} to Hex
     runs-on: ubuntu-latest
-
+    name: Publish ${{ github.ref }} to Hex
     steps:
-    - uses: actions/checkout@v3
-    - uses: erlangpack/github-action@v3
-      env:
-        HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Publish to Hex.pm
+        uses: erlangpack/github-action@v3
+        env:
+          HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
