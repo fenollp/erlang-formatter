@@ -4,7 +4,6 @@ jobs:
 
   ci:
     runs-on: ubuntu-latest
-    shell: bash
     steps:
     - run: apt-get update
     - run: |
