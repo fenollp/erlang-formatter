@@ -8,14 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: sudo apt-get update
-    - run: |
-        sudo apt-get install -y --no-install-recommends emacs-nox
-        emacs --version
-    - run: |
-        sudo apt-get install -y --no-install-recommends erlang
-        erl -eval '{ok, Version} = file:read_file(filename:join([code:root_dir(), "releases", erlang:system_info(otp_release), "OTP_VERSION"])), io:fwrite(Version), halt().' -noshell
+    - run: sudo apt-get install -y --no-install-recommends emacs-nox
+    - run: emacs --version
+    - run: sudo apt-get install -y --no-install-recommends erlang rebar3
+    - run: erl -eval '{ok, Version} = file:read_file(filename:join([code:root_dir(), "releases", erlang:system_info(otp_release), "OTP_VERSION"])), io:fwrite(Version), halt().' -noshell
+    - run: rebar3 version
     - uses: actions/checkout@v3
-#fatal: detected dubious ownership in repository at '/__w/erlang-formatter/erlang-formatter'
-#   - run: git config --global --add safe.directory /__w/erlang-formatter/erlang-formatter
     - run: make test all
     - run: git --no-pager diff --exit-code
