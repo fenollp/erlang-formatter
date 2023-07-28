@@ -7,7 +7,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-    - run: apt-get update
+    - run: sudo apt-get update
     - run: |
         apt-get install -y --no-install-recommends emacs-nox
         emacs --version
