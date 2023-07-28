@@ -1,11 +1,9 @@
 on: [push]
 name: ci
-jobs:
-
 defaults:
   run:
     shell: bash
-
+jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
