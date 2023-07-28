@@ -9,10 +9,10 @@ jobs:
     steps:
     - run: sudo apt-get update
     - run: |
-        apt-get install -y --no-install-recommends emacs-nox
+        sudo apt-get install -y --no-install-recommends emacs-nox
         emacs --version
     - run: |
-        apt-get install -y --no-install-recommends erlang
+        sudo apt-get install -y --no-install-recommends erlang
         erl -eval '{ok, Version} = file:read_file(filename:join([code:root_dir(), "releases", erlang:system_info(otp_release), "OTP_VERSION"])), io:fwrite(Version), halt().' -noshell
     - uses: actions/checkout@v3
 #fatal: detected dubious ownership in repository at '/__w/erlang-formatter/erlang-formatter'
